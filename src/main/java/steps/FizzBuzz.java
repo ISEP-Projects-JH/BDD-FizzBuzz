@@ -13,5 +13,24 @@ public class FizzBuzz {
         return result.isEmpty() ? Integer.toString(number) : result;
     }
 
-    public String convertV1(int number) {return convert(number);}
+    public String convertV1(int number) {
+        boolean shouldFizz = number % 3 == 0;
+        boolean shouldBuzz = number % 5 == 0;
+        String toS = Integer.toString(number);
+        if (toS.contains("3")) {
+            shouldFizz = true;
+        }
+        if (toS.contains("5")) {
+            shouldBuzz = true;
+        }
+        if (shouldFizz && shouldBuzz) {
+            return "FizzBuzz";
+        } else if (shouldFizz) {
+            return "Fizz";
+        } else if (shouldBuzz) {
+            return "Buzz";
+        } else {
+            return toS;
+        }
+    }
 }
