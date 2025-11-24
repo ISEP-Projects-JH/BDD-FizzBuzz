@@ -40,5 +40,29 @@ public class FizzBuzz {
         return result.isEmpty() ? s : result;
     }
 
-    public String convertV2(int number) { return convertV1(number); }
+    public String convertV2(int number) {
+        int fizzCount = 0;
+        int buzzCount = 0;
+
+        // multiples
+        if (number % 3 == 0) fizzCount++;
+        if (number % 5 == 0) buzzCount++;
+
+        // digit occurrences
+        String s = Integer.toString(number);
+        for (char c : s.toCharArray()) {
+            if (c == '3') fizzCount++;
+            if (c == '5') buzzCount++;
+        }
+
+        // build result
+        if (fizzCount == 0 && buzzCount == 0) {
+            return s; // unchanged number
+        }
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("Fizz".repeat(fizzCount));
+        sb.append("Buzz".repeat(buzzCount));
+        return sb.toString();
+    }
 }
