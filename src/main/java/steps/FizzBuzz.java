@@ -12,4 +12,6 @@ public class FizzBuzz {
         String result = (number % 3 == 0 ? "Fizz" : "") + (number % 5 == 0 ? "Buzz" : "");
         return result.isEmpty() ? Integer.toString(number) : result;
     }
+
+    public String convertV1(int number) {return convert(number);}
 }
