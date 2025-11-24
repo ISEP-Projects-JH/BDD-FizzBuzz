@@ -1,6 +1,5 @@
 package steps;
 
-
 public class FizzBuzz {
 
     /**
@@ -40,29 +39,32 @@ public class FizzBuzz {
         return result.isEmpty() ? s : result;
     }
 
+    /**
+     * Variant of convert that counts both multiples and digit occurrences.
+     *
+     * <p>Rules:</p>
+     * <ul>
+     *   <li>Each time the number is a multiple of 3, adds one "Fizz".</li>
+     *   <li>Each '3' digit in the number adds another "Fizz".</li>
+     *   <li>Each time the number is a multiple of 5, adds one "Buzz".</li>
+     *   <li>Each '5' digit in the number adds another "Buzz".</li>
+     *   <li>If neither count is positive, returns the number as a string.</li>
+     * </ul>
+     *
+     * @param number the number to convert
+     * @return a string matching the pattern {@code (Fizz)* (Buzz)*}, where each
+     *         "Fizz" and "Buzz" reflects the counted occurrences; if both counts
+     *         are zero, returns the decimal representation of the number
+     */
     public String convertV2(int number) {
-        int fizzCount = 0;
-        int buzzCount = 0;
-
-        // multiples
-        if (number % 3 == 0) fizzCount++;
-        if (number % 5 == 0) buzzCount++;
-
-        // digit occurrences
         String s = Integer.toString(number);
-        for (char c : s.toCharArray()) {
-            if (c == '3') fizzCount++;
-            if (c == '5') buzzCount++;
-        }
-
-        // build result
+        int fizzCount = (number % 3 == 0 ? 1 : 0)
+                        + (s.length() - s.replace("3", "").length());
+        int buzzCount = (number % 5 == 0 ? 1 : 0)
+                        + (s.length() - s.replace("5", "").length());
         if (fizzCount == 0 && buzzCount == 0) {
-            return s; // unchanged number
+            return s;
         }
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("Fizz".repeat(fizzCount));
-        sb.append("Buzz".repeat(buzzCount));
-        return sb.toString();
+        return "Fizz".repeat(fizzCount) + "Buzz".repeat(buzzCount);
     }
 }
