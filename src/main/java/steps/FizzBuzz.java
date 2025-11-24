@@ -39,4 +39,6 @@ public class FizzBuzz {
         String result = (fizz ? "Fizz" : "") + (buzz ? "Buzz" : "");
         return result.isEmpty() ? s : result;
     }
+
+    public String convertV2(int number) { return convertV1(number); }
 }
