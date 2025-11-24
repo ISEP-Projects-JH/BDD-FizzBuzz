@@ -63,7 +63,7 @@ Feature: FizzBuzzV1 conversion
       | 54     | FizzBuzz   |
       | 55     | Buzz       |
       | 56     | Buzz       |
-      | 57     | Fizz       |
+      | 57     | FizzBuzz   |
       | 58     | Buzz       |
       | 59     | Buzz       |
       | 60     | FizzBuzz   |
